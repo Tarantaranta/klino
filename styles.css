@@ -1,0 +1,393 @@
+/* Genel ayarlar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #4a5568;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    background-color: #2d3748;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #4a5568;
+}
+
+.content-section {
+    display: none;
+    padding: 2rem;
+    background-color: #fff;
+    margin: 1rem auto;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-section.active {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    color: #4a5568;
+    background-color: #edf2f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2d3748;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4a5568;
+}
+
+/* Hasta Havuzu */
+#hasta-havuzu {
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+}
+
+#hasta-havuzu h2 {
+    text-align: center;
+    background-color: #5a67d8;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#hasta-ara {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead th {
+    background-color: #5a67d8;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Genel Takvim */
+#genel-takvim {
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+}
+
+#genel-takvim h2 {
+    text-align: center;
+    background-color: #5a67d8;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#takvim-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#takvim {
+    width: 80%;
+    max-width: 1000px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#takvim .header {
+    background-color: #5a67d8;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+#takvim .days {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #edf2f7;
+}
+
+#takvim .day {
+    width: 14%;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#takvim .day:hover {
+    background-color: #e2e8f0;
+}
+
+#takvim .day.current {
+    background-color: #4299e1;
+    color: #fff;
+}
+
+#takvim .day.past {
+    background-color: #e53e3e;
+    color: #fff;
+}
+
+#takvim .day.future {
+    background-color: #48bb78;
+    color: #fff;
+}
+
+/* Sözlük */
+#sozluk {
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+}
+
+#sozluk h2 {
+    text-align: center;
+    background-color: #5a67d8;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#sendrom-ara {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#sendrom-listesi {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#sendrom-listesi li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#sendrom-listesi li:hover {
+    background-color: #e2e8f0;
+}
+
+/* Hasta Dosyası */
+#hasta-bilgileri-container, #seans-bilgileri-container, #diyet-bilgileri-container, #anket-bilgileri-container {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+.baslik {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#hasta-bilgileri, #seans-bilgileri, #diyet-bilgileri, #anket-bilgileri {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f4f4f9;
+}
+
+.bilgi-sutun, .seans-sutun {
+    width: 48%;
+    margin-bottom: 1rem;
+}
+
+/* Yeni stil eklemeleri */
+.meridian-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.meridian-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.meridian-row button {
+    flex: 1;
+    margin: 5px;
+}
+
+#points-list, #combinations-list {
+    margin-bottom: 20px;
+}
+
+#selected-akupunktur-noktalari, #selected-kombinasyonlar {
+    list-style-type: none;
+    padding: 0;
+}
+
+#selected-akupunktur-noktalari li, #selected-kombinasyonlar li {
+    background-color: #f0f0f0;
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Modal style */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Yeni stiller */
+.bold-text {
+    font-weight: bold;
+}
+
+.enlarged-button {
+    background-color: #2d3748;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.enlarged-button:hover {
+    background-color: #4a5568;
+}
+
+.enlarged-content {
+    display: none;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+.enlarged-content.show {
+    display: block;
+}
+
+/* Metinleri sola hizalama */
+.sola-hizala {
+    text-align: left;
+}

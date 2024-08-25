@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akupunktur Klinik Uygulaması</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dr.Kerem Al Akupunktur Kliniği</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#hasta-ekle" onclick="showSection('hasta-ekle')">Hasta Ekle</a></li>
+            <li><a href="#seans-ekle" onclick="showSection('seans-ekle')">Seans Ekle</a></li>
+            <li><a href="#diyet-ekle" onclick="showSection('diyet-ekle')">Diyet Ekle</a></li>
+            <li><a href="#genel-takvim" onclick="showSection('genel-takvim')">Genel Takvim</a></li>
+            <li><a href="#sozluk" onclick="showSection('sozluk')">Sözlük</a></li>
+            <li><a href="#hasta-havuzu" onclick="showSection('hasta-havuzu')">Hasta Havuzu</a></li>
+            <li><a href="#hasta-dosyasi" onclick="showSection('hasta-dosyasi')">Hasta Dosyası</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+        <section id="hasta-ekle" class="content-section active">
+            <h2>Hasta Ekle</h2>
+            <form id="hasta-form">
+                <div>
+                    <label for="ad">Ad:</label>
+                    <input type="text" id="ad" name="ad">
+                </div>
+                <div>
+                    <label for="soyad">Soyad:</label>
+                    <input type="text" id="soyad" name="soyad">
+                </div>
+                <div>
+                    <label for="yas">Yaş:</label>
+                    <input type="number" id="yas" name="yas">
+                </div>
+                <div>
+                    <label for="tc">TC:</label>
+                    <input type="text" id="tc" name="tc">
+                </div>
+                <div>
+                    <label for="meslek">Meslek:</label>
+                    <input type="text" id="meslek" name="meslek">
+                </div>
+                <div>
+                    <label for="evli">Evli:</label>
+                    <input type="checkbox" id="evli" name="evli">
+                </div>
+                <div>
+                    <label for="cocuk_sayisi">Çocuk Sayısı:</label>
+                    <input type="number" id="cocuk_sayisi" name="cocuk_sayisi">
+                </div>
+                <div>
+                    <label for="cinsiyet">Cinsiyet:</label>
+                    <select id="cinsiyet" name="cinsiyet">
+                        <option value="Erkek">Erkek</option>
+                        <option value="Kadın">Kadın</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="telefon">Telefon:</label>
+                    <input type="tel" id="telefon" name="telefon">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="adres">Adres:</label>
+                    <textarea id="adres" name="adres"></textarea>
+                </div>
+                <div>
+                    <label for="ana_sikayet">Ana Şikayet:</label>
+                    <textarea id="ana_sikayet" name="ana_sikayet"></textarea>
+                </div>
+                <button type="submit">Kaydet</button>
+            </form>
+        </section>
+        
+        <section id="seans-ekle" class="content-section">
+            <h2>Seans Ekle</h2>
+            <form id="seans-form">
+                <div>
+                    <label for="hasta-secimi">Hasta:</label>
+                    <select id="hasta-secimi" name="hasta-secimi">
+                        <!-- Hastalar dinamik olarak yüklenecek -->
+                    </select>
+                </div>
+                <div class="seans-tarih-saat">
+                    <div>
+                        <label for="tarih">Tarih:</label>
+                        <input type="date" id="tarih" name="tarih">
+                    </div>
+                    <div>
+                        <label for="saat">Saat:</label>
+                        <input type="time" id="saat" name="saat">
+                    </div>
+                </div>
+                
+                <!-- New Meridian Grid -->
+                <div class="meridian-grid">
+                    <div class="meridian-row">
+                        <button type="button" onclick="showPoints('Lung (LU)')">Lung (LU)</button>
+                        <button type="button" onclick="showPoints('Large Intestine (LI)')">Large Intestine (LI)</button>
+                        <button type="button" onclick="showPoints('Stomach (ST)')">Stomach (ST)</button>
+                        <button type="button" onclick="showPoints('Spleen (SP)')">Spleen (SP)</button>
+                        <button type="button" onclick="showPoints('Heart (HT)')">Heart (HT)</button>
+                        <button type="button" onclick="showPoints('Small Intestine (SI)')">Small Intestine (SI)</button>
+                    </div>
+                    <div class="meridian-row">
+                        <button type="button" onclick="showPoints('Bladder (BL)')">Bladder (BL)</button>
+                        <button type="button" onclick="showPoints('Kidney (KI)')">Kidney (KI)</button>
+                        <button type="button" onclick="showPoints('Pericardium (PC)')">Pericardium (PC)</button>
+                        <button type="button" onclick="showPoints('Triple Burner (TB)')">Triple Burner (TB)</button>
+                        <button type="button" onclick="showPoints('Gall Bladder (GB)')">Gall Bladder (GB)</button>
+                        <button type="button" onclick="showPoints('Liver (LR)')">Liver (LR)</button>
+                    </div>
+                    <div class="meridian-row">
+                        <button type="button" onclick="showPoints('Du (DU)')">Du (DU)</button>
+                        <button type="button" onclick="showPoints('Ren (REN)')">Ren (REN)</button>
+                        <button type="button" onclick="showPoints('Extra Points')">Extra Points</button>
+                    </div>
+                </div>
+
+                <!-- Points List -->
+                <div id="points-list">
+                    <label for="akupunktur-noktalari">Akupunktur Noktaları:</label>
+                    <select id="akupunktur-noktalari" name="akupunktur-noktalari"></select>
+                    <button type="button" onclick="ekleAkupunkturNoktasi()">Ekle</button>
+                </div>
+                <ul id="selected-akupunktur-noktalari"></ul>
+
+                <!-- Combinations Modal -->
+                <div id="combinationModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeCombinationModal()">&times;</span>
+                        <label for="modal-kombinasyonlar">Kombinasyon Seçin:</label>
+                        <select id="modal-kombinasyonlar" name="modal-kombinasyonlar"></select>
+                        <button type="button" onclick="ekleKombinasyon()">Ekle</button>
+                    </div>
+                </div>
+
+                <div class="combination-grid">
+                    <div class="combination-row">
+                        <button type="button" onclick="showCombinations('2\'li Kombinasyonlar')">2'li Kombinasyonlar</button>
+                        <button type="button" onclick="showCombinations('3\'lü Kombinasyonlar')">3'lü Kombinasyonlar</button>
+                        <button type="button" onclick="showCombinations('4\'lü Kombinasyonlar')">4'lü Kombinasyonlar</button>
+                    </div>
+                    <div class="combination-row">
+                        <button type="button" onclick="showCombinations('Yuan-Luo Kombinasyonları')">Yuan-Luo Kombinasyonları</button>
+                        <button type="button" onclick="showCombinations('Efsane Kombinasyonlar')">Efsane Kombinasyonlar</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="islem">İşlem:</label>
+                    <textarea id="islem" name="islem"></textarea>
+                </div>
+                <button type="submit">Kaydet</button>
+                <button type="button" onclick="resetForm()">Formu Sıfırla</button>
+                <button type="button" onclick="openSurvey()">Seans Sonrası Anket</button>
+            </form>
+
+            <ul id="selected-kombinasyonlar"></ul>
+        </section>
+        
+        <section id="diyet-ekle" class="content-section">
+            <h2>Diyet Ekle</h2>
+            <form id="diyet-form">
+                <div>
+                    <label for="hasta-secimi-diyet">Hasta:</label>
+                    <select id="hasta-secimi-diyet" name="hasta-secimi-diyet">
+                        <!-- Hastalar dinamik olarak yüklenecek -->
+                    </select>
+                </div>
+                <div>
+                    <label for="diyet">Diyet:</label>
+                    <textarea id="diyet" name="diyet"></textarea>
+                </div>
+                <button type="submit">Kaydet</button>
+            </form>
+        </section>
+        
+        <section id="genel-takvim" class="content-section">
+            <h2>Genel Takvim</h2>
+            <div id="takvim-container">
+                <div id="takvim">
+                    <div class="header">Takvim Başlığı</div>
+                    <div class="days">
+                        <div class="day">Pzt</div>
+                        <div class="day">Sal</div>
+                        <div class="day">Çar</div>
+                        <div class="day">Per</div>
+                        <div class="day">Cum</div>
+                        <div class="day past">Cmt</div>
+                        <div class="day future">Paz</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sozluk" class="content-section">
+            <h2>Sözlük</h2>
+            <input type="text" id="sendrom-ara" placeholder="Sendrom Ara" oninput="sendromAra()">
+            <ul id="sendrom-listesi">
+                <!-- Dinamik içerik buraya yüklenecek -->
+            </ul>
+        </section>
+        
+        <section id="hasta-havuzu" class="content-section">
+            <h2>Hasta Havuzu</h2>
+            <input type="text" id="hasta-ara" placeholder="Hasta Ara" oninput="hastaAra()">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Yaş</th>
+                        <th>TC</th>
+                        <th>Meslek</th>
+                        <th>Evli</th>
+                        <th>Çocuk Sayısı</th>
+                        <th>Cinsiyet</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th>Adres</th>
+                        <th>Ana Şikayet</th>
+                        <th>Toplam Seans</th>
+                    </tr>
+                </thead>
+                <tbody id="hasta-listesi">
+                    <!-- Dinamik içerik buraya yüklenecek -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="hasta-dosyasi" class="content-section">
+            <h2>Hasta Dosyası</h2>
+            <input type="text" id="hasta-id-ara" placeholder="Hasta ID Ara">
+            <button onclick="fetchHastaDosyasiById()">Ara</button>
+            <div id="hasta-dosyasi-content">
+                <form id="hasta-dosyasi-form">
+                    <div id="hasta-bilgileri-container">
+                        <h3 class="baslik">Hasta Bilgileri</h3>
+                        <div id="hasta-bilgileri" class="bilgi-tablo">
+                            <div class="bilgi-sutun sol-sutun">
+                                <label for="hasta-ad">Ad:</label>
+                                <input type="text" id="hasta-ad" name="ad">
+                                <label for="hasta-soyad">Soyad:</label>
+                                <input type="text" id="hasta-soyad" name="soyad">
+                                <label for="hasta-yas">Yaş:</label>
+                                <input type="number" id="hasta-yas" name="yas">
+                                <label for="hasta-tc">TC:</label>
+                                <input type="text" id="hasta-tc" name="tc">
+                                <label for="hasta-meslek">Meslek:</label>
+                                <input type="text" id="hasta-meslek" name="meslek">
+                            </div>
+                            <div class="bilgi-sutun sag-sutun">
+                                <label for="hasta-evli">Evli:</label>
+                                <input type="checkbox" id="hasta-evli" name="evli">
+                                <label for="hasta-cocuk_sayisi">Çocuk Sayısı:</label>
+                                <input type="number" id="hasta-cocuk_sayisi" name="cocuk_sayisi">
+                                <label for="hasta-cinsiyet">Cinsiyet:</label>
+                                <select id="hasta-cinsiyet" name="cinsiyet">
+                                    <option value="Erkek">Erkek</option>
+                                    <option value="Kadın">Kadın</option>
+                                </select>
+                                <label for="hasta-telefon">Telefon:</label>
+                                <input type="tel" id="hasta-telefon" name="telefon">
+                                <label for="hasta-email">Email:</label>
+                                <input type="email" id="hasta-email" name="email">
+                                <label for="hasta-adres">Adres:</label>
+                                <textarea id="hasta-adres" name="adres"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="hasta-ana_sikayet" class="bilgi-tablo">
+                        <label for="hasta-ana_sikayet">Ana Şikayet:</label>
+                        <textarea id="hasta-ana_sikayet" name="ana_sikayet"></textarea>
+                    </div>
+                    <div id="notlar-dusunceler" class="bilgi-tablo">
+                        <h3 class="baslik">Muayene Bulguları ve Düşünceler</h3>
+                        <textarea id="notlar-dusunceler-alani"></textarea>
+                    </div>
+                    <div id="seans-bilgileri-container">
+                        <h3 class="baslik">Seans Bilgileri</h3>
+                        <div id="seans-bilgileri" class="bilgi-tablo">
+                            <div class="seans-sutun">
+                                <h4>Geçmiş Seanslar</h4>
+                                <ul id="gecmis-seanslar"></ul>
+                            </div>
+                            <div class="seans-sutun">
+                                <h4>Gelecek Seanslar</h4>
+                                <ul id="gelecek-seanslar"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="diyet-bilgileri-container">
+                        <h3 class="baslik">Diyet Bilgileri</h3>
+                        <div id="diyet-bilgileri" class="bilgi-tablo">
+                            <ul id="diyet-listesi"></ul>
+                        </div>
+                    </div>
+                    <div id="anket-bilgileri-container">
+                        <h3 class="baslik">Seans Sonrası Anket</h3>
+                        <div id="anket-bilgileri" class="bilgi-tablo">
+                            <ul id="anket-listesi"></ul>
+                        </div>
+                    </div>
+                    <button type="submit">Kaydet</button>
+                </form>
+                <button onclick="indirHastaDosyasi()">Dosyayı İndir</button>
+                <button onclick="yazdirHastaDosyasi()">Yazdır</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for selecting points -->
+    <div id="pointModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <label for="modal-akupunktur-noktalari">Akupunktur Noktaları:</label>
+            <select id="modal-akupunktur-noktalari" name="modal-akupunktur-noktalari"></select>
+            <button type="button" onclick="ekleAkupunkturNoktasi()">Ekle</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
